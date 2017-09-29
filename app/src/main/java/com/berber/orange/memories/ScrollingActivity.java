@@ -1,9 +1,15 @@
 package com.berber.orange.memories;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,16 +26,25 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ScrollingActivity extends AppCompatActivity {
+public class ScrollingActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private RecyclerView recycler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scrolling);
+        setContentView(R.layout.activity_test);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -40,12 +55,15 @@ public class ScrollingActivity extends AppCompatActivity {
             }
         });
 
+        TabLayout tab = (TabLayout) findViewById(R.id.tab);
+        tab.addTab(tab.newTab().setText("hello"));
+        tab.addTab(tab.newTab().setText("hello"));
 
 //        Glide.with(this).load("https://cdn.pixabay.com/photo/2016/10/28/11/57/tic-tac-toe-1777859_960_720.jpg")
 //                .into(imageView);
 
 
-        ImageView imageView = findViewById(R.id.image_content);
+        ImageView imageView = (ImageView) findViewById(R.id.image_content);
         Glide.with(this).load("https://cdn.pixabay.com/photo/2016/10/28/11/57/tic-tac-toe-1777859_960_720.jpg").into(imageView);
         initRecycler();
     }
@@ -75,7 +93,7 @@ public class ScrollingActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_scrolling, menu);
+        getMenuInflater().inflate(R.menu.test, menu);
         return true;
     }
 
@@ -90,6 +108,31 @@ public class ScrollingActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }
+
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.nav_camera) {
+            // Handle the camera action
+        } else if (id == R.id.nav_gallery) {
+
+        } else if (id == R.id.nav_slideshow) {
+
+        } else if (id == R.id.nav_manage) {
+
+        } else if (id == R.id.nav_share) {
+
+        } else if (id == R.id.nav_send) {
+
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }
