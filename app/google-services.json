@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1007045828483",
+    "firebase_url": "https://memories-8068d.firebaseio.com",
+    "project_id": "memories-8068d",
+    "storage_bucket": "memories-8068d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1007045828483:android:d9e105f291c2e098",
+        "android_client_info": {
+          "package_name": "com.berber.orange.memories"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1007045828483-kf7jgu7lknk8ul52gq3aeasie64h9gur.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.berber.orange.memories",
+            "certificate_hash": "bde30f469546b15e43c00db435515ac338409977"
+          }
+        },
+        {
+          "client_id": "1007045828483-limqn92o7logo67ddrqejj3hn7fcurnr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBL_lPNjvZCNp4vfVpG8Xbp1Vsha-iX2x4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1007045828483-limqn92o7logo67ddrqejj3hn7fcurnr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
